@@ -194,38 +194,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cf4532821607db940a701b38a58fe736, type: 3}
   m_PrefabInstance: {fileID: 18164829}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &242335900
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 242335901}
-  m_Layer: 0
-  m_Name: CameraPivot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &242335901
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242335900}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.104528464, y: 0, z: 0, w: 0.9945219}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 473613053}
-  m_Father: {fileID: 500972718}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &277626706
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,12 +444,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473613052}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: -2.8}
+  m_LocalRotation: {x: 0.104528464, y: -0, z: -0, w: 0.9945219}
+  m_LocalPosition: {x: 0, y: 2.2777822, z: -2.6972308}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 242335901}
+  m_Father: {fileID: 500972718}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &473613054
 AudioListener:
@@ -572,12 +540,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d917e9ad515794782b583d5f306b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  walkSpeed: 1.8
-  runSpeed: 5
+  walkSpeed: 2.5
+  runSpeed: 6
   acceleration: 10
-  jumpHeight: 1.2
-  gravity: -9.81
-  cameraTarget: {fileID: 242335901}
+  jumpHeight: 2.5
+  gravity: -15
+  cameraTarget: {fileID: 473613053}
   lookSensitivity: 0.1
   minPitch: -30
   maxPitch: 35
@@ -622,7 +590,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 18164831}
-  - {fileID: 242335901}
+  - {fileID: 473613053}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &640574155
