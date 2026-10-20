@@ -107,25 +107,15 @@ public class PlayerController : MonoBehaviour
             lookSensitivity;
 
         // Rotação horizontal do jogador.
-        transform.Rotate(
-            Vector3.up * look.x
-        );
+        transform.Rotate(Vector3.up * look.x);
 
         // Rotação vertical da câmera.
         pitch -= look.y;
 
-        pitch = Mathf.Clamp(
-            pitch,
-            minPitch,
-            maxPitch
-        );
+        pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
 
         cameraTarget.localRotation =
-            Quaternion.Euler(
-                pitch,
-                0f,
-                0f
-            );
+            Quaternion.Euler(pitch, 0f, 0f);
     }
 
     // ==================================================
@@ -137,47 +127,34 @@ public class PlayerController : MonoBehaviour
         bool grounded =
             controller.isGrounded;
 
-        // Mantém o jogador encostado no chão.
+        // Mantém o jogador encostado no chão
         if (grounded && velocity.y < 0f)
         {
             velocity.y = -2f;
         }
 
-        // Pulo.
+        // Pulo
         if (jumpAction.WasPressedThisFrame() && grounded)
         {
-            velocity.y = Mathf.Sqrt(
-                jumpHeight * -2f * gravity
-            );
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 
             animator.SetTrigger("Jump");
         }
 
-        // Gravidade.
-        velocity.y +=
-            gravity * Time.deltaTime;
+        // Gravidade
+        velocity.y += gravity * Time.deltaTime;
 
-        Vector2 input =
-            moveAction.ReadValue<Vector2>();
+        Vector2 input = moveAction.ReadValue<Vector2>();
 
-        Vector3 move =
-            transform.right * input.x +
-            transform.forward * input.y;
+        Vector3 move = transform.right * input.x + transform.forward * input.y;
 
-        // shift corre
+        // corrida
         float speed = sprintAction.IsPressed() ? runSpeed : walkSpeed;
 
         // vai acelerando aos poucos pro blend tree nao trocar seco
-        moveVelocity = Vector3.MoveTowards(
-            moveVelocity,
-            move * speed,
-            acceleration * Time.deltaTime
-        );
+        moveVelocity = Vector3.MoveTowards(moveVelocity, move * speed, acceleration * Time.deltaTime);
 
-        controller.Move(
-            (moveVelocity + velocity) *
-            Time.deltaTime
-        );
+        controller.Move((moveVelocity + velocity) * Time.deltaTime);
     }
 
     // ==================================================
